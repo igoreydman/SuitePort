@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  SuitePort
 //
 //  Created by Igor E on 4/27/16.
@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        let url = NSURL(string: "http://suiteport.mybluemix.net/")
+        let request = NSURLRequest(URL: url!)
+        
+        webView.loadRequest(request)
+        
     }
 
     override func didReceiveMemoryWarning() {
