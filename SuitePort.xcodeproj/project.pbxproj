@@ -16,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AE4134F30C6CFB64E155C1D /* Pods-SuitePort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuitePort.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuitePort/Pods-SuitePort.debug.xcconfig"; sourceTree = "<group>"; };
+		25C79519BFEB04DEA4F3E134 /* Pods-SuitePort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuitePort.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuitePort/Pods-SuitePort.release.xcconfig"; sourceTree = "<group>"; };
 		78768F351CD1380600857621 /* SuitePort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuitePort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78768F381CD1380700857621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78768F3A1CD1380700857621 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 			children = (
 				78768F371CD1380700857621 /* SuitePort */,
 				78768F361CD1380600857621 /* Products */,
+				F0FD42C22616840D82AAFAE4 /* Pods */,
+				F287945BF1E8D1E210AA9222 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +71,22 @@
 			path = SuitePort;
 			sourceTree = "<group>";
 		};
+		F0FD42C22616840D82AAFAE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AE4134F30C6CFB64E155C1D /* Pods-SuitePort.debug.xcconfig */,
+				25C79519BFEB04DEA4F3E134 /* Pods-SuitePort.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F287945BF1E8D1E210AA9222 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +94,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78768F471CD1380700857621 /* Build configuration list for PBXNativeTarget "SuitePort" */;
 			buildPhases = (
+				64D3938FBD81B1EE430F3AB7 /* Check Pods Manifest.lock */,
 				78768F311CD1380600857621 /* Sources */,
 				78768F321CD1380600857621 /* Frameworks */,
 				78768F331CD1380600857621 /* Resources */,
+				5AD085669B36E6B03DFF6FD4 /* Embed Pods Frameworks */,
+				EE1A8062636BE372D738A0D2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +155,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AD085669B36E6B03DFF6FD4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuitePort/Pods-SuitePort-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64D3938FBD81B1EE430F3AB7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE1A8062636BE372D738A0D2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuitePort/Pods-SuitePort-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78768F311CD1380600857621 /* Sources */ = {
@@ -253,9 +324,15 @@
 		};
 		78768F481CD1380700857621 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AE4134F30C6CFB64E155C1D /* Pods-SuitePort.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SuitePort/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -264,9 +341,15 @@
 		};
 		78768F491CD1380700857621 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C79519BFEB04DEA4F3E134 /* Pods-SuitePort.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SuitePort/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +375,7 @@
 				78768F491CD1380700857621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

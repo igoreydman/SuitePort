@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -21,17 +22,43 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-d1-q8w">
+                                <rect key="frame" x="217" y="505" width="167" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="wts-2F-qqf"/>
+                                </constraints>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNS-ak-cm0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpR-YN-ESw">
+                                <rect key="frame" x="153" y="151" width="294" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="UBr-sp-Uwr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ysg-vl-gY8" secondAttribute="trailing" id="102-dJ-lQS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZpR-YN-ESw" secondAttribute="trailing" constant="133" id="56a-wL-agz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CgW-d1-q8w" secondAttribute="bottom" constant="20" id="6hU-OT-5me"/>
+                            <constraint firstItem="ZpR-YN-ESw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="87" id="9ch-hP-rIH"/>
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ayf-Ns-E6t"/>
+                            <constraint firstItem="CgW-d1-q8w" firstAttribute="centerX" secondItem="Ysg-vl-gY8" secondAttribute="centerX" id="TQx-SM-YIn"/>
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="dEe-IN-p9c"/>
+                            <constraint firstItem="ZpR-YN-ESw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="133" id="qaq-ec-mvK"/>
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yC2-Gq-aMG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WnV-Tv-8li"/>
                     <connections>
+                        <outlet property="recordButton" destination="CgW-d1-q8w" id="Rxd-UE-HBY"/>
+                        <outlet property="textLabel" destination="ZpR-YN-ESw" id="lwS-e6-4LA"/>
                         <outlet property="webView" destination="Ysg-vl-gY8" id="5Gn-2i-RJv"/>
                     </connections>
                 </viewController>

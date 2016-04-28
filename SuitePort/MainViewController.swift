@@ -7,10 +7,24 @@
 //
 
 import UIKit
+import SpeechKit
 
-class MainViewController: UIViewController {
-
+class MainViewController: UIViewController, SKTransactionDelegate {
+    
+    var locatonList = ["the moon", "earth", "mars", "mars 1", "mars 2", "mars 3"]
+    
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var textLabel: UILabel!
+    
+    @IBAction func recordTapped(sender: AnyObject) {
+        recordButton.setTitle("Listening", forState: .Normal)
+        let session = SKSession(URL: NSURL(string: "nmsps://NMDPTRIAL_igoratsuiteport_gmail_com20160428150234@sslsandbox.nmdp.nuancemobility.net:443"), appToken: "85f54358cbcdbfd0c4e508eb7f11d9accc11e7a1ddfedeb4fa02a6673eb1cbc3a60e1b71dbda419fc0498b3f5b64eb2776d3c853d1a707cba9ad32e75efeaa04")
+        session.recognizeWithType(SKTransactionSpeechTypeDictation,
+                                  detection: .Short,
+                                  language: "eng-USA",
+                                  delegate: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +37,17 @@ class MainViewController: UIViewController {
         
     }
 
+    func transaction(transaction: SKTransaction!, didReceiveRecognition recognition: SKRecognition!) {
+        //var result = recognition.text
+        textLabel.text = recognition.text
+        ////TODO - Change Icon to flashing
+        recordButton.setTitle("Listen", forState: .Normal)
+        //print(result)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
