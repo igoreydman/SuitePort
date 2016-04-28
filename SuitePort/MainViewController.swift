@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Foundation
 import SpeechKit
 
 class MainViewController: UIViewController, SKTransactionDelegate {
     
-    var locatonList = ["the moon", "earth", "mars", "mars 1", "mars 2", "mars 3"]
+    let locatonList = ["moon", "earth", "mars"]
+    var myLocation :String?
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var textFound: UILabel!
     
     @IBAction func recordTapped(sender: AnyObject) {
         recordButton.setTitle("Listening", forState: .Normal)
@@ -39,7 +42,17 @@ class MainViewController: UIViewController, SKTransactionDelegate {
 
     func transaction(transaction: SKTransaction!, didReceiveRecognition recognition: SKRecognition!) {
         //var result = recognition.text
-        textLabel.text = recognition.text
+        textLabel.text = recognition.text.lowercaseString
+        
+        for location in locatonList {
+            if (textLabel.text!.rangeOfString("\(location)") != nil) {
+                print("\(location)")
+                textFound.text = location
+            } else {
+                print("I'm not sure what you're looking for. There seems to be a problem connecting to Suite Port. Please try asking take me to mars or what is the weather")
+            }
+        }
+        
         ////TODO - Change Icon to flashing
         recordButton.setTitle("Listen", forState: .Normal)
         //print(result)
