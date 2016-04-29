@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-vl-gY8" customClass="WebViewController" customModule="SuitePort" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-d1-q8w">
                                 <rect key="frame" x="217" y="505" width="167" height="75"/>
                                 <constraints>
@@ -50,6 +46,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-vl-gY8" customClass="WebViewController" customModule="SuitePort" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -67,7 +67,13 @@
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yC2-Gq-aMG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WnV-Tv-8li"/>
+                    <navigationItem key="navigationItem" id="WnV-Tv-8li">
+                        <barButtonItem key="rightBarButtonItem" title="Talk test" id="fxm-Xq-ysw">
+                            <connections>
+                                <action selector="talkPressed:" destination="BYZ-38-t0r" id="tew-pQ-smd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="recordButton" destination="CgW-d1-q8w" id="Rxd-UE-HBY"/>
                         <outlet property="textFound" destination="FYb-Cg-qNy" id="f15-4E-wHG"/>
