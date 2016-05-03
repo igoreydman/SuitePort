@@ -70,52 +70,60 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         let result = recognition.text.lowercaseString
         //textLabel.text = recognition.text.lowercaseString
         //result = textlable.text!
+        
         if (result.rangeOfString("weather") != nil) || (result.rangeOfString("whether") != nil){
             
+            // User is probably asking for the weather, get the weather info
             if myLocation != nil {
-                // get weather information for location
-                print("weather woohoo!")
-                textFound.text = "weather"
+                
+                // Location found, get weather information for location
                 let utterance = "The average temperature on \(myLocation!) is \(temperature!)"
                 sayThis(utterance)
-                
             } else {
+                
+                // No location, can't get weather
                 let utterance = "We are unable to determine your location, try going to a new location"
                 sayThis(utterance)
-                textFound.text = "weather not found"
             }
         } else if ((result.rangeOfString("location") != nil) || (result.rangeOfString("where") != nil)) {
+            
+            // User wants to know location
             if myLocation != nil {
+                
+                // Location found, where am i?
                 let utterance = "you are currently at \(myLocation!)"
                     sayThis(utterance)
-                textFound.text = "you are currently at \(myLocation!)"
             } else {
+                
+                // No location information, get user to teleport to get the new location
                 let utterance = "We are unable to determine your location, try going to a new location"
                 sayThis(utterance)
-                textFound.text = "location not found"
             }
         } else {
             
+            // User didn't ask for weather, and didn't ask for location. Lets teleport the user
             for location in locatonList {
+                
                 if (result.rangeOfString("\(location)") != nil) {
-                    print("\(location)")
-                    //textFound.text = location
-                    locationCheck(location)
-                    //myLocation = location
                     
-                    // change location
+                    // User said a location, lets check our list if there's a match
+                    locationCheck(location)
+
+                    // Change location
                     changeLocation(teleportLocation!)
                     let utterance = "Taking you to \(myLocation!)"
                     sayThis(utterance)
                 } else {
-                    print("I'm not sure what you're looking for. There seems to be a problem connecting to Suite Port. Please try asking take me to mars or what is the weather")
+                    
+                    // Location is not on list or they asked for something that was not programmed
+                    let utterance = "I'm not sure what you're looking for. There seems to be a problem connecting to Suite Port. Please try asking take me to mars or what is the weather"
+                    sayThis(utterance)
                 }
             }
         }
         
         ////TODO - Change Icon to flashing
         recordButton.setTitle("Listen", forState: .Normal)
-        //print(result)
     }
     
     override func didReceiveMemoryWarning() {
@@ -142,6 +150,8 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
     }
     
     func sayThis(utterance: String) {
+        
+        // Setup for AVSpeechUtterance
         let speechUtterance = AVSpeechUtterance(string: utterance)
         speechUtterance.voice = self.speechVoice
         speechUtterance.rate = 0.5
@@ -187,11 +197,12 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
                 print("POST: " + postString)
                 self.performSelectorOnMainThread("updatePostLabel:", withObject: postString, waitUntilDone: false)
             }
-            
         }).resume()
     }
     
     func locationCheck(location: String) {
+        
+        // Check location list and to set teleportLocation and temperature. teleportLocation is used to post and change the location
         switch location {
         case "earth":
             myLocation = "earth"
@@ -210,7 +221,7 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
             temperature = "268 Kelvin"
             break
         default :
-            // no  location found!
+            // No  location found!
             break
         }
     }
