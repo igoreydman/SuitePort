@@ -13,8 +13,11 @@ import SpeechKit
 
 class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTransactionDelegate {
     
+    // Location variables
     let locatonList = ["moon", "earth", "mars"]
     var myLocation :String?
+    var teleportLocation :String?
+    var temperature :String?
     
     // Text to speech setup
     let speechSynthesizer = AVSpeechSynthesizer()
@@ -22,8 +25,6 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var textFound: UILabel!
     
     @IBAction func talkPressed(sender: AnyObject) {
         let utterance = "This is a talking test, do you hear me?"
@@ -46,8 +47,6 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         let url = NSURL(string: "http://suiteport.mybluemix.net/")
         let request = NSURLRequest(URL: url!)
         
-        webView.addSubview(textLabel)
-        webView.addSubview(textFound)
         webView.addSubview(recordButton)
         webView.loadRequest(request)
     }
@@ -65,26 +64,27 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
             }
         }
         sayThis(" ")
-        
-        
     }
     
     func transaction(transaction: SKTransaction!, didReceiveRecognition recognition: SKRecognition!) {
-        //var result = recognition.text
-        textLabel.text = recognition.text.lowercaseString
-        
-        if (textLabel.text!.rangeOfString("weather") != nil) || (textLabel.text!.rangeOfString("whether") != nil){
+        let result = recognition.text.lowercaseString
+        //textLabel.text = recognition.text.lowercaseString
+        //result = textlable.text!
+        if (result.rangeOfString("weather") != nil) || (result.rangeOfString("whether") != nil){
             
             if myLocation != nil {
                 // get weather information for location
                 print("weather woohoo!")
                 textFound.text = "weather"
+                let utterance = "The average temperature on \(myLocation!) is \(temperature!)"
+                sayThis(utterance)
+                
             } else {
                 let utterance = "We are unable to determine your location, try going to a new location"
                 sayThis(utterance)
                 textFound.text = "weather not found"
             }
-        } else if ((textLabel.text!.rangeOfString("location") != nil) || (textLabel.text!.rangeOfString("where") != nil)) {
+        } else if ((result.rangeOfString("location") != nil) || (result.rangeOfString("where") != nil)) {
             if myLocation != nil {
                 let utterance = "you are currently at \(myLocation!)"
                     sayThis(utterance)
@@ -97,15 +97,15 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         } else {
             
             for location in locatonList {
-                if (textLabel.text!.rangeOfString("\(location)") != nil) {
+                if (result.rangeOfString("\(location)") != nil) {
                     print("\(location)")
-                    textFound.text = location
+                    //textFound.text = location
                     locationCheck(location)
                     //myLocation = location
                     
                     // change location
-                    changeLocation(myLocation!)
-                    let utterance = "Taking you to \(myLocation)"
+                    changeLocation(teleportLocation!)
+                    let utterance = "Taking you to \(myLocation!)"
                     sayThis(utterance)
                 } else {
                     print("I'm not sure what you're looking for. There seems to be a problem connecting to Suite Port. Please try asking take me to mars or what is the weather")
@@ -152,13 +152,13 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         speechSynthesizer.speakUtterance(speechUtterance)
     }
     
-    func changeLocation(myLocation: String) {
+    func changeLocation(teleportLocation: String) {
         
-        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        // Setup the session to make REST GET call
         let postEndpoint: String = "https://suiteport.mybluemix.net/alexa/request"
         let session = NSURLSession.sharedSession()
         let url = NSURL(string: postEndpoint)!
-        let postParams : [String : AnyObject] = ["location" : "\(myLocation)"]
+        let postParams : [String : AnyObject] = ["location" : "\(teleportLocation)"]
         
         
         // Create the request
@@ -195,12 +195,19 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         switch location {
         case "earth":
             myLocation = "earth"
+            temperature = "254 Kelvin"
+            teleportLocation = myLocation
             break
         case "mars":
             myLocation = "mars"
+            let marsArray = ["mars 1", "mars 2", "mars 3"]
+            teleportLocation = marsArray[Int(arc4random_uniform(UInt32(marsArray.count)))]
+            temperature = "212 Kelvin"
             break
         case "moon":
             myLocation = "the moon"
+            teleportLocation = myLocation
+            temperature = "268 Kelvin"
             break
         default :
             // no  location found!
