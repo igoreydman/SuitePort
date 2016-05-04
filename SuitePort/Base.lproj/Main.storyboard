@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -22,11 +23,30 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="wts-2F-qqf"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="recordTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNS-ak-cm0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are lost." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYv-vc-LeA">
+                                <rect key="frame" x="439" y="96" width="121" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="tRE-E5-qDl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Unknown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-MZ-4pK">
+                                <rect key="frame" x="439" y="126" width="121" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="tod-VG-pEX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-vl-gY8" customClass="WebViewController" customModule="SuitePort" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
@@ -36,21 +56,21 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ysg-vl-gY8" secondAttribute="trailing" id="102-dJ-lQS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CgW-d1-q8w" secondAttribute="bottom" constant="20" id="6hU-OT-5me"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HgO-MZ-4pK" secondAttribute="trailing" constant="20" id="8VW-sR-0XY"/>
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ayf-Ns-E6t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CYv-vc-LeA" secondAttribute="trailing" constant="20" id="BoL-UI-ruF"/>
                             <constraint firstItem="CgW-d1-q8w" firstAttribute="centerX" secondItem="Ysg-vl-gY8" secondAttribute="centerX" id="TQx-SM-YIn"/>
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="dEe-IN-p9c"/>
+                            <constraint firstItem="CYv-vc-LeA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="mwq-83-S0j"/>
+                            <constraint firstItem="HgO-MZ-4pK" firstAttribute="top" secondItem="CYv-vc-LeA" secondAttribute="bottom" constant="-1" id="pTN-yt-cz3"/>
                             <constraint firstItem="Ysg-vl-gY8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yC2-Gq-aMG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WnV-Tv-8li">
-                        <barButtonItem key="rightBarButtonItem" title="Talk test" id="fxm-Xq-ysw">
-                            <connections>
-                                <action selector="talkPressed:" destination="BYZ-38-t0r" id="tew-pQ-smd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="WnV-Tv-8li"/>
                     <connections>
+                        <outlet property="locationLabel" destination="CYv-vc-LeA" id="Qho-sc-Hye"/>
                         <outlet property="recordButton" destination="CgW-d1-q8w" id="Rxd-UE-HBY"/>
+                        <outlet property="tempLabel" destination="HgO-MZ-4pK" id="Fhe-z2-WKM"/>
                         <outlet property="webView" destination="Ysg-vl-gY8" id="5Gn-2i-RJv"/>
                     </connections>
                 </viewController>
@@ -61,13 +81,17 @@
         <!--Navigation Controller-->
         <scene sceneID="aaS-oJ-1yV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NoC-d3-YJa" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NoC-d3-YJa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7mB-ZB-rsG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Pd1-Xw-8LU">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Omq-pe-d25"/>
                     </connections>

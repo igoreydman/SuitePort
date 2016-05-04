@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7819AFA41CDA5FEA0001659A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7819AFA21CDA5FEA0001659A /* Interface.storyboard */; };
+		7819AFA61CDA5FEA0001659A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7819AFA51CDA5FEA0001659A /* Assets.xcassets */; };
+		7819AFAD1CDA5FEA0001659A /* SuitePortWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7819AFAC1CDA5FEA0001659A /* SuitePortWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7819AFB41CDA5FEA0001659A /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7819AFB31CDA5FEA0001659A /* InterfaceController.swift */; };
+		7819AFB61CDA5FEA0001659A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7819AFB51CDA5FEA0001659A /* ExtensionDelegate.swift */; };
+		7819AFB81CDA5FEA0001659A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7819AFB71CDA5FEA0001659A /* NotificationController.swift */; };
+		7819AFBA1CDA5FEA0001659A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7819AFB91CDA5FEA0001659A /* Assets.xcassets */; };
+		7819AFBE1CDA5FEA0001659A /* SuitePortWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7819AFA01CDA5FE90001659A /* SuitePortWatch.app */; };
 		78768F391CD1380700857621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768F381CD1380700857621 /* AppDelegate.swift */; };
 		78768F3B1CD1380700857621 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768F3A1CD1380700857621 /* MainViewController.swift */; };
 		78768F3E1CD1380700857621 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78768F3C1CD1380700857621 /* Main.storyboard */; };
@@ -15,9 +23,62 @@
 		78768F501CD14EC700857621 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768F4F1CD14EC700857621 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7819AFAE1CDA5FEA0001659A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78768F2D1CD1380600857621 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7819AFAB1CDA5FEA0001659A;
+			remoteInfo = "SuitePortWatch Extension";
+		};
+		7819AFBC1CDA5FEA0001659A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78768F2D1CD1380600857621 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7819AF9F1CDA5FE90001659A;
+			remoteInfo = SuitePortWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7819AFC41CDA5FEA0001659A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7819AFAD1CDA5FEA0001659A /* SuitePortWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7819AFC61CDA5FEA0001659A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7819AFBE1CDA5FEA0001659A /* SuitePortWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1AE4134F30C6CFB64E155C1D /* Pods-SuitePort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuitePort.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuitePort/Pods-SuitePort.debug.xcconfig"; sourceTree = "<group>"; };
 		25C79519BFEB04DEA4F3E134 /* Pods-SuitePort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuitePort.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuitePort/Pods-SuitePort.release.xcconfig"; sourceTree = "<group>"; };
+		7819AFA01CDA5FE90001659A /* SuitePortWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuitePortWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7819AFA31CDA5FEA0001659A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7819AFA51CDA5FEA0001659A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7819AFA71CDA5FEA0001659A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7819AFAC1CDA5FEA0001659A /* SuitePortWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SuitePortWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7819AFB21CDA5FEA0001659A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		7819AFB31CDA5FEA0001659A /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		7819AFB51CDA5FEA0001659A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		7819AFB71CDA5FEA0001659A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7819AFB91CDA5FEA0001659A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7819AFBB1CDA5FEA0001659A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78768F351CD1380600857621 /* SuitePort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuitePort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78768F381CD1380700857621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78768F3A1CD1380700857621 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +90,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7819AFA91CDA5FEA0001659A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78768F321CD1380600857621 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +107,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7819AFA11CDA5FEA0001659A /* SuitePortWatch */ = {
+			isa = PBXGroup;
+			children = (
+				7819AFA21CDA5FEA0001659A /* Interface.storyboard */,
+				7819AFA51CDA5FEA0001659A /* Assets.xcassets */,
+				7819AFA71CDA5FEA0001659A /* Info.plist */,
+			);
+			path = SuitePortWatch;
+			sourceTree = "<group>";
+		};
+		7819AFB01CDA5FEA0001659A /* SuitePortWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7819AFB31CDA5FEA0001659A /* InterfaceController.swift */,
+				7819AFB51CDA5FEA0001659A /* ExtensionDelegate.swift */,
+				7819AFB71CDA5FEA0001659A /* NotificationController.swift */,
+				7819AFB91CDA5FEA0001659A /* Assets.xcassets */,
+				7819AFBB1CDA5FEA0001659A /* Info.plist */,
+				7819AFB11CDA5FEA0001659A /* Supporting Files */,
+			);
+			path = "SuitePortWatch Extension";
+			sourceTree = "<group>";
+		};
+		7819AFB11CDA5FEA0001659A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7819AFB21CDA5FEA0001659A /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		78768F2C1CD1380600857621 = {
 			isa = PBXGroup;
 			children = (
 				78768F371CD1380700857621 /* SuitePort */,
+				7819AFA11CDA5FEA0001659A /* SuitePortWatch */,
+				7819AFB01CDA5FEA0001659A /* SuitePortWatch Extension */,
 				78768F361CD1380600857621 /* Products */,
 				F0FD42C22616840D82AAFAE4 /* Pods */,
 				F287945BF1E8D1E210AA9222 /* Frameworks */,
@@ -53,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				78768F351CD1380600857621 /* SuitePort.app */,
+				7819AFA01CDA5FE90001659A /* SuitePortWatch.app */,
+				7819AFAC1CDA5FEA0001659A /* SuitePortWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +193,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7819AF9F1CDA5FE90001659A /* SuitePortWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7819AFC51CDA5FEA0001659A /* Build configuration list for PBXNativeTarget "SuitePortWatch" */;
+			buildPhases = (
+				7819AF9E1CDA5FE90001659A /* Resources */,
+				7819AFC41CDA5FEA0001659A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7819AFAF1CDA5FEA0001659A /* PBXTargetDependency */,
+			);
+			name = SuitePortWatch;
+			productName = SuitePortWatch;
+			productReference = 7819AFA01CDA5FE90001659A /* SuitePortWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		7819AFAB1CDA5FEA0001659A /* SuitePortWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7819AFC31CDA5FEA0001659A /* Build configuration list for PBXNativeTarget "SuitePortWatch Extension" */;
+			buildPhases = (
+				7819AFA81CDA5FEA0001659A /* Sources */,
+				7819AFA91CDA5FEA0001659A /* Frameworks */,
+				7819AFAA1CDA5FEA0001659A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SuitePortWatch Extension";
+			productName = "SuitePortWatch Extension";
+			productReference = 7819AFAC1CDA5FEA0001659A /* SuitePortWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		78768F341CD1380600857621 /* SuitePort */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78768F471CD1380700857621 /* Build configuration list for PBXNativeTarget "SuitePort" */;
@@ -100,10 +237,12 @@
 				78768F331CD1380600857621 /* Resources */,
 				5AD085669B36E6B03DFF6FD4 /* Embed Pods Frameworks */,
 				EE1A8062636BE372D738A0D2 /* Copy Pods Resources */,
+				7819AFC61CDA5FEA0001659A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7819AFBD1CDA5FEA0001659A /* PBXTargetDependency */,
 			);
 			name = SuitePort;
 			productName = SuitePort;
@@ -120,6 +259,13 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = IgorEydman;
 				TargetAttributes = {
+					7819AF9F1CDA5FE90001659A = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					7819AFAB1CDA5FEA0001659A = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = P3M7H46699;
+					};
 					78768F341CD1380600857621 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -139,11 +285,30 @@
 			projectRoot = "";
 			targets = (
 				78768F341CD1380600857621 /* SuitePort */,
+				7819AF9F1CDA5FE90001659A /* SuitePortWatch */,
+				7819AFAB1CDA5FEA0001659A /* SuitePortWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7819AF9E1CDA5FE90001659A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7819AFA61CDA5FEA0001659A /* Assets.xcassets in Resources */,
+				7819AFA41CDA5FEA0001659A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7819AFAA1CDA5FEA0001659A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7819AFBA1CDA5FEA0001659A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78768F331CD1380600857621 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +370,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7819AFA81CDA5FEA0001659A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7819AFB81CDA5FEA0001659A /* NotificationController.swift in Sources */,
+				7819AFB61CDA5FEA0001659A /* ExtensionDelegate.swift in Sources */,
+				7819AFB41CDA5FEA0001659A /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78768F311CD1380600857621 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,7 +392,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7819AFAF1CDA5FEA0001659A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7819AFAB1CDA5FEA0001659A /* SuitePortWatch Extension */;
+			targetProxy = 7819AFAE1CDA5FEA0001659A /* PBXContainerItemProxy */;
+		};
+		7819AFBD1CDA5FEA0001659A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7819AF9F1CDA5FE90001659A /* SuitePortWatch */;
+			targetProxy = 7819AFBC1CDA5FEA0001659A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		7819AFA21CDA5FEA0001659A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7819AFA31CDA5FEA0001659A /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		78768F3C1CD1380700857621 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -237,6 +433,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7819AFBF1CDA5FEA0001659A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = SuitePortWatch_Extension;
+				INFOPLIST_FILE = SuitePortWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		7819AFC01CDA5FEA0001659A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = SuitePortWatch_Extension;
+				INFOPLIST_FILE = SuitePortWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		7819AFC11CDA5FEA0001659A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "SuitePortWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		7819AFC21CDA5FEA0001659A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "SuitePortWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		78768F451CD1380700857621 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -359,6 +621,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7819AFC31CDA5FEA0001659A /* Build configuration list for PBXNativeTarget "SuitePortWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7819AFC11CDA5FEA0001659A /* Debug */,
+				7819AFC21CDA5FEA0001659A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7819AFC51CDA5FEA0001659A /* Build configuration list for PBXNativeTarget "SuitePortWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7819AFBF1CDA5FEA0001659A /* Debug */,
+				7819AFC01CDA5FEA0001659A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		78768F301CD1380600857621 /* Build configuration list for PBXProject "SuitePort" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

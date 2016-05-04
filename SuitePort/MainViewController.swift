@@ -10,8 +10,12 @@ import UIKit
 import Foundation
 import AVFoundation
 import SpeechKit
+import WatchConnectivity
 
-class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTransactionDelegate {
+// Enables Apple Watch funcionality for iOS 9 and up
+@available(iOS 9.0, *)
+
+class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, WCSessionDelegate, SKTransactionDelegate {
     
     // Location variables
     let locatonList = ["moon", "earth", "mars"]
@@ -23,13 +27,13 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
     let speechSynthesizer = AVSpeechSynthesizer()
     var speechVoice : AVSpeechSynthesisVoice?
     
+    // WatchKit setup
+    let watchSession = WCSession.defaultSession()
+    
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var recordButton: UIButton!
-    
-    @IBAction func talkPressed(sender: AnyObject) {
-        let utterance = "This is a talking test, do you hear me?"
-        sayThis(utterance)
-    }
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
     
     @IBAction func recordTapped(sender: AnyObject) {
         recordButton.setTitle("Listening", forState: .Normal)
@@ -47,8 +51,13 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         let url = NSURL(string: "http://suiteport.mybluemix.net/")
         let request = NSURLRequest(URL: url!)
         
+        webView.addSubview(locationLabel)
+        webView.addSubview(tempLabel)
         webView.addSubview(recordButton)
         webView.loadRequest(request)
+        
+        //initiate session
+        initWCSession()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -68,16 +77,17 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
     
     func transaction(transaction: SKTransaction!, didReceiveRecognition recognition: SKRecognition!) {
         let result = recognition.text.lowercaseString
-        //textLabel.text = recognition.text.lowercaseString
-        //result = textlable.text!
-        
+        matchWords(result)
+    }
+    
+    func matchWords(result: String) {
         if (result.rangeOfString("weather") != nil) || (result.rangeOfString("whether") != nil){
             
             // User is probably asking for the weather, get the weather info
             if myLocation != nil {
                 
                 // Location found, get weather information for location
-                let utterance = "The average temperature on \(myLocation!) is \(temperature!)"
+                let utterance = "The average temperature on \(myLocation!) is \(temperature!) degrees kelvin"
                 sayThis(utterance)
             } else {
                 
@@ -92,7 +102,7 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
                 
                 // Location found, where am i?
                 let utterance = "you are currently at \(myLocation!)"
-                    sayThis(utterance)
+                sayThis(utterance)
             } else {
                 
                 // No location information, get user to teleport to get the new location
@@ -108,16 +118,20 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
                     
                     // User said a location, lets check our list if there's a match
                     locationCheck(location)
-
+                    
                     // Change location
                     changeLocation(teleportLocation!)
                     let utterance = "Taking you to \(myLocation!)"
                     sayThis(utterance)
-                } else {
                     
-                    // Location is not on list or they asked for something that was not programmed
-                    let utterance = "I'm not sure what you're looking for. There seems to be a problem connecting to Suite Port. Please try asking take me to mars or what is the weather"
-                    sayThis(utterance)
+                    // Update Temperature information
+                    tempLabel.text = "\(temperature!) K"
+                    
+                    //                } else if (result.rangeOfString("\(location)") == nil) {
+                    //
+                    //                    // Location is not on list or they asked for something that was not programmed
+                    //                    let utterance = "I'm not sure what you're looking for. There seems to be a problem connecting to Suite Port. Please try asking take me to mars or what is the weather"
+                    //                    sayThis(utterance)
                 }
             }
         }
@@ -206,24 +220,43 @@ class MainViewController: UIViewController, AVSpeechSynthesizerDelegate, SKTrans
         switch location {
         case "earth":
             myLocation = "earth"
-            temperature = "254 Kelvin"
+            temperature = "254"
             teleportLocation = myLocation
+            locationLabel.text = "Earth"
+            locationLabel.textColor = UIColor.blackColor()
+            tempLabel.textColor = UIColor.blackColor()
             break
         case "mars":
             myLocation = "mars"
-            let marsArray = ["mars 1", "mars 2", "mars 3"]
+            let marsArray = ["mars", "mars 1", "mars 2", "mars 3"]
             teleportLocation = marsArray[Int(arc4random_uniform(UInt32(marsArray.count)))]
-            temperature = "212 Kelvin"
+            temperature = "212"
+            locationLabel.text = "Mars"
+            locationLabel.textColor = UIColor.blackColor()
+            tempLabel.textColor = UIColor.blackColor()
             break
         case "moon":
             myLocation = "the moon"
             teleportLocation = myLocation
-            temperature = "268 Kelvin"
+            temperature = "268"
+            locationLabel.text = "The Moon"
+            locationLabel.textColor = UIColor.whiteColor()
+            tempLabel.textColor = UIColor.whiteColor()
             break
         default :
             // No  location found!
             break
         }
+    }
+    
+    // Initiate Apple Watch session
+    func initWCSession() {
+        watchSession.delegate = self
+        watchSession.activateSession()
+    }
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        
     }
 }
 
