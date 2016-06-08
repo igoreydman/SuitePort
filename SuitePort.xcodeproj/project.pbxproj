@@ -21,6 +21,11 @@
 		78768F401CD1380700857621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78768F3F1CD1380700857621 /* Assets.xcassets */; };
 		78768F431CD1380700857621 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78768F411CD1380700857621 /* LaunchScreen.storyboard */; };
 		78768F501CD14EC700857621 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768F4F1CD14EC700857621 /* WebViewController.swift */; };
+		78836F281D087A57002DA81A /* mars-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 78836F231D087A57002DA81A /* mars-1.jpg */; };
+		78836F2A1D087A57002DA81A /* mars-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 78836F251D087A57002DA81A /* mars-2.jpg */; };
+		78836F2B1D087A57002DA81A /* mars-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 78836F261D087A57002DA81A /* mars-3.jpg */; };
+		78836F2C1D087A57002DA81A /* moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 78836F271D087A57002DA81A /* moon.jpg */; };
+		78836F2E1D088037002DA81A /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 78836F2D1D088037002DA81A /* earth.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,11 @@
 		78768F421CD1380700857621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78768F441CD1380700857621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78768F4F1CD14EC700857621 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		78836F231D087A57002DA81A /* mars-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mars-1.jpg"; sourceTree = "<group>"; };
+		78836F251D087A57002DA81A /* mars-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mars-2.jpg"; sourceTree = "<group>"; };
+		78836F261D087A57002DA81A /* mars-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mars-3.jpg"; sourceTree = "<group>"; };
+		78836F271D087A57002DA81A /* moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon.jpg; sourceTree = "<group>"; };
+		78836F2D1D088037002DA81A /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +180,21 @@
 				78768F3F1CD1380700857621 /* Assets.xcassets */,
 				78768F411CD1380700857621 /* LaunchScreen.storyboard */,
 				78768F441CD1380700857621 /* Info.plist */,
+				78836F221D0879B0002DA81A /* Images */,
 			);
 			path = SuitePort;
+			sourceTree = "<group>";
+		};
+		78836F221D0879B0002DA81A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				78836F231D087A57002DA81A /* mars-1.jpg */,
+				78836F251D087A57002DA81A /* mars-2.jpg */,
+				78836F261D087A57002DA81A /* mars-3.jpg */,
+				78836F271D087A57002DA81A /* moon.jpg */,
+				78836F2D1D088037002DA81A /* earth.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		F0FD42C22616840D82AAFAE4 /* Pods */ = {
@@ -313,8 +336,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78836F2C1D087A57002DA81A /* moon.jpg in Resources */,
 				78768F431CD1380700857621 /* LaunchScreen.storyboard in Resources */,
+				78836F2B1D087A57002DA81A /* mars-3.jpg in Resources */,
+				78836F2A1D087A57002DA81A /* mars-2.jpg in Resources */,
+				78836F2E1D088037002DA81A /* earth.jpg in Resources */,
 				78768F401CD1380700857621 /* Assets.xcassets in Resources */,
+				78836F281D087A57002DA81A /* mars-1.jpg in Resources */,
 				78768F3E1CD1380700857621 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,7 +622,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SuitePort/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -611,7 +639,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SuitePort/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorEydman.SuitePort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -628,6 +656,7 @@
 				7819AFC21CDA5FEA0001659A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7819AFC51CDA5FEA0001659A /* Build configuration list for PBXNativeTarget "SuitePortWatch" */ = {
 			isa = XCConfigurationList;
@@ -636,6 +665,7 @@
 				7819AFC01CDA5FEA0001659A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78768F301CD1380600857621 /* Build configuration list for PBXProject "SuitePort" */ = {
 			isa = XCConfigurationList;

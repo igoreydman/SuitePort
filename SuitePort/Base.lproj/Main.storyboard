@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -18,10 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-d1-q8w">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-d1-q8w">
                                 <rect key="frame" x="217" y="505" width="167" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="wts-2F-qqf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="167" id="4bu-gt-PpZ"/>
+                                    <constraint firstAttribute="height" constant="75" id="DOS-Zx-wOI"/>
+                                    <constraint firstAttribute="width" constant="167" id="fMk-7U-ewt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Record"/>
@@ -29,49 +30,46 @@
                                     <action selector="recordTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNS-ak-cm0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are lost." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYv-vc-LeA">
-                                <rect key="frame" x="439" y="96" width="121" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are lost." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYv-vc-LeA">
+                                <rect key="frame" x="449" y="70" width="121" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="tRE-E5-qDl"/>
+                                    <constraint firstAttribute="width" constant="121" id="DBg-w8-MeE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Unknown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-MZ-4pK">
-                                <rect key="frame" x="439" y="126" width="121" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="tod-VG-pEX"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-MZ-4pK">
+                                <rect key="frame" x="471" y="99" width="78" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-vl-gY8" customClass="WebViewController" customModule="SuitePort" customModuleProvider="target">
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wka-ye-54I">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
+                            </sceneKitView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ysg-vl-gY8" secondAttribute="trailing" id="102-dJ-lQS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CgW-d1-q8w" secondAttribute="bottom" constant="20" id="6hU-OT-5me"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HgO-MZ-4pK" secondAttribute="trailing" constant="20" id="8VW-sR-0XY"/>
-                            <constraint firstItem="Ysg-vl-gY8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ayf-Ns-E6t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CYv-vc-LeA" secondAttribute="trailing" constant="20" id="BoL-UI-ruF"/>
-                            <constraint firstItem="CgW-d1-q8w" firstAttribute="centerX" secondItem="Ysg-vl-gY8" secondAttribute="centerX" id="TQx-SM-YIn"/>
-                            <constraint firstItem="Ysg-vl-gY8" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="dEe-IN-p9c"/>
-                            <constraint firstItem="CYv-vc-LeA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="mwq-83-S0j"/>
-                            <constraint firstItem="HgO-MZ-4pK" firstAttribute="top" secondItem="CYv-vc-LeA" secondAttribute="bottom" constant="-1" id="pTN-yt-cz3"/>
-                            <constraint firstItem="Ysg-vl-gY8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yC2-Gq-aMG"/>
+                            <constraint firstItem="CgW-d1-q8w" firstAttribute="centerX" secondItem="wka-ye-54I" secondAttribute="centerX" id="0KM-mg-179"/>
+                            <constraint firstItem="CYv-vc-LeA" firstAttribute="top" secondItem="HgO-MZ-4pK" secondAttribute="bottom" constant="-50" id="1st-RQ-sAC"/>
+                            <constraint firstItem="HgO-MZ-4pK" firstAttribute="centerX" secondItem="CYv-vc-LeA" secondAttribute="centerX" id="84R-bR-Pm9"/>
+                            <constraint firstAttribute="trailing" secondItem="CYv-vc-LeA" secondAttribute="trailing" constant="30" id="8Jx-ea-rIu"/>
+                            <constraint firstItem="wka-ye-54I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ERc-Qa-5b9"/>
+                            <constraint firstAttribute="trailing" secondItem="wka-ye-54I" secondAttribute="trailing" id="M7H-GW-XFY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wka-ye-54I" secondAttribute="bottom" id="P2f-fr-jXr"/>
+                            <constraint firstItem="CYv-vc-LeA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Wtp-hz-ixF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CgW-d1-q8w" secondAttribute="bottom" constant="20" id="n12-p7-IRT"/>
+                            <constraint firstItem="wka-ye-54I" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rTD-7I-EZQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WnV-Tv-8li"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="locationLabel" destination="CYv-vc-LeA" id="Qho-sc-Hye"/>
                         <outlet property="recordButton" destination="CgW-d1-q8w" id="Rxd-UE-HBY"/>
+                        <outlet property="sceneView" destination="wka-ye-54I" id="3I7-9V-RVW"/>
                         <outlet property="tempLabel" destination="HgO-MZ-4pK" id="Fhe-z2-WKM"/>
-                        <outlet property="webView" destination="Ysg-vl-gY8" id="5Gn-2i-RJv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -83,7 +81,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NoC-d3-YJa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7mB-ZB-rsG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="7mB-ZB-rsG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
